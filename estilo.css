@@ -17,9 +17,23 @@ canvas:focus
 	outline-width: 0px;
 }
 
+#conteudo
+{
+	margin: auto;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	padding: 20px;
+	position: relative;
+	width: 800px;
+	border: 2px solid;
+	border-color: #222222;
+	border-radius: 4px;
+}
+
 #links
 {
 	margin: auto;
+	margin-bottom: 5px;
 	width:800px;
 	border: none;
 }
@@ -29,6 +43,20 @@ canvas:focus
 	margin: auto;
 	width: 800px;
 	height: 170px;
+}
+
+#eu
+{
+	width: 300px;
+	height: 300px;
+	border-radius: 4px;
+}
+
+#texto1
+{
+	position: absolute;
+	margin-left: 340px;
+	margin-right: 20px;
 }
 
 #tutubarao

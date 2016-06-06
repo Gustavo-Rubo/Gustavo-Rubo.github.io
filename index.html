@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="css/scrolling-nav.css" rel="stylesheet">
     <title>Gustavo Rubo</title>
 
     <!-- Bootstrap -->
@@ -15,7 +16,7 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
-  <body>
+  <body data-spy="scroll" data-target=".navbar">
 	<div id="cabecalho">
       <canvas id="pjs"></canvas>
 	</div>
@@ -26,6 +27,36 @@
 			<li><a href="#menu4" ><div id="botao">Contato</div></a></li>
 		</ul>
 	</nav>
+	
+	<section id="menu2">
+	<div id="conteudo">
+	  <div id="texto1">
+	    <h2>Quem sou eu</h2>
+		<p>Aluno do terceiro ano de informática do Colégio Técnico Industrial
+			de Bauru, gosto muito do meu curso e busco sempre novas formas
+			de utilizar a informática para fazer coisas idiotas.</p>
+		<p>Gosto também de música (toco piano e violão), origami, robótica
+			e de frequentar o meu grupo escoteiro.</p>
+	  </div>
+	  <img id="eu" src="img/eu.png"></img>
+	</div>
+	</section>
+	
+	<section id="menu3">
+	<div id="conteudo">
+      <h2>Trabalhos</h2>
+	  <p>site em construção</p>
+	  <img height="250px;"src="img/construcao.png"></img>
+	</div>
+	</section>
+	
+	<section id="menu4">
+	<div id="conteudo">
+		<h2>Contato</h2>
+		<p>E-mail: gustavo.rubo@hotmail.com</p>
+		<p>Celular: (014) 99122 2713</p>
+	</div>
+	</section>
 	
 	<div id="tutubarao">
 	  <marquee id="tutubarao" direction="right">
@@ -44,8 +75,11 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
 	<script src="processing.min.js" type="text/javascript"></script>
+    <script src="js/jquery.easing.min.js"></script>
+    <script src="js/scrolling-nav.js"></script>
   </body>
 </html>
+
 
 <script type="text/processing" data-processing-target="pjs">
 ArrayList<Valume> valumes;
