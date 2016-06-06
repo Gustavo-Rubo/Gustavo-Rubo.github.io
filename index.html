@@ -1,11 +1,176 @@
 <!DOCTYPE html>
-<!-- Gustavo Marangoni Rubo -->
-<html lang="pt-br">
- <head>
-  <meta charset="utf-8">
-  <title>Gustavo Rubo</title>
- </head>
- <body>
-  eu
- </body>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Gustavo Rubo</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="estilo.css" rel="stylesheet">
+
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+	<div id="cabecalho">
+      <canvas id="pjs"></canvas>
+	</div>
+	<nav class="navbar navbar-inverse " id="links">
+		<ul class="nav navbar-nav navbar-center">
+			<li><a href="#menu2" ><div id="botao">Sobre</div></a></li>
+			<li><a href="#menu3" ><div id="botao">Trabalhos</div></a></li>
+			<li><a href="#menu4" ><div id="botao">Contato</div></a></li>
+		</ul>
+	</nav>
+	
+	<div id="tutubarao">
+	  <marquee id="tutubarao" direction="right">
+	    <pre>
+            .                
+            |\               
+.           | \              
+|\       _-´   ¨¨¨-.         
+\ `---¨¨¨        o  `>       
+ `>,-----_         ´´    ><> 
+ |/       ¨¨¨¨|/¨¨´´         
+ ´            ´              
+	    </pre>
+	  </marquee>
+	</div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+	<script src="processing.min.js" type="text/javascript"></script>
+  </body>
 </html>
+
+<script type="text/processing" data-processing-target="pjs">
+ArrayList<Valume> valumes;
+
+int tempo = 0;
+PFont f;
+PImage nome;
+
+void setup()
+{
+  valumes = new ArrayList<Valume>();
+  nome = loadImage("./img/nome.png");
+  size(800, 170);
+  for(int i = 0; i < 22; i ++)
+  {
+    Valume vl = new Valume((int)random(width), (int)random(height));
+    vl.nascimento = i * 3;
+    valumes.add(vl);
+  }
+  smooth();
+}
+
+void draw()
+{
+  tempo ++;
+  background(20);
+  for (Valume vl : valumes)
+  {
+    vl.atualiza();
+    if (vl.x < -20 || vl.x > width + 20
+      || vl.y < -20 || vl.y > height + 20)
+      vl.refaz();
+  }
+  
+  image(nome, 0, 0);
+}
+
+void mousePressed()
+{
+  Valume vl = new Valume(mouseX, mouseY);
+  valumes.add(vl);
+}
+
+abstract class Objeto
+{
+  double x, y;
+  
+  Objeto(double x, double y)
+  {
+    this.x = x;
+    this.y = y;
+  }
+  
+  abstract void desenha();
+  abstract void atualiza();
+}
+class Valume extends Objeto
+{
+  float velocidade, angulo, brilho;
+  int nascimento;
+  color centro, fora;
+  color amarelo1 = color(217, 232, 21);
+  color amarelo2 = color(217, 232, 21, 100);
+  color laranja1 = color(229, 97, 20);
+  color laranja2 = color(223, 97, 20, 100);
+
+  Valume(int x, int y)
+  {
+    super(x, y);
+    centro = amarelo1;
+    fora = amarelo2;
+    velocidade  = random(100) / 100;
+    angulo = random(TWO_PI);
+    brilho = 100;
+    nascimento = tempo;
+  }
+
+  void refaz()
+  {
+    x = (int)random(width);
+    y = (int)random(height);
+  }
+
+  double quad(float q) { 
+    return q*q;
+  }
+  double quad(double q) { 
+    return q*q;
+  }
+
+  boolean sobre()
+  {
+    if (quad(mouseX - x) + quad(mouseY - y) < quad(brilho/20)) return true;
+    else return false;
+  }
+
+  void desenha()
+  {
+    noStroke();
+    fill(fora);
+    ellipse((float)x, (float)y, brilho/10, brilho/10);
+    fill(centro);
+    ellipse((float)x, (float)y, 8, 8);
+  }
+
+  void atualiza()
+  {
+    angulo += sin(random(TWO_PI)) / 10;
+    velocidade += sin(random(TWO_PI)) / 10;
+    if (velocidade > 1)  velocidade = 1;
+    if (velocidade < -1) velocidade = -1;
+    x += velocidade * cos(angulo);
+    y += velocidade * sin(angulo);
+    brilho = 200 + 50 * sin((tempo - nascimento) / (PI * 10));
+    if (sobre())
+    {
+      centro = laranja1;
+      fora = laranja2;
+    } else
+    {
+      centro = amarelo1;
+      fora = amarelo2;
+    }
+    desenha();
+  }
+}
+
+</script>

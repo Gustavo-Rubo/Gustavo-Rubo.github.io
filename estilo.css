@@ -1,0 +1,39 @@
+body{
+	background-color: #141414;
+	color: #ffffff;
+	padding: 0;
+	margin: 0;
+}
+
+pre
+{
+	background-color: inherit;
+	color: inherit;
+	border: none;
+}
+
+canvas:focus
+{
+	outline-width: 0px;
+}
+
+#links
+{
+	margin: auto;
+	width:800px;
+	border: none;
+}
+
+#cabecalho
+{
+	margin: auto;
+	width: 800px;
+	height: 170px;
+}
+
+#tutubarao
+{
+	margin: auto;
+	background-color: #141414;
+	width: 800px;
+}
