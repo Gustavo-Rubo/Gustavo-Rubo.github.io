@@ -55,9 +55,53 @@
 	
 	<section id="menu3">
 	<div id="conteudo">
-      <h2>Trabalhos</h2>
-	  <p>site em construção</p>
-	  <img height="250px;"src="img/construcao.png"></img>
+	  <div id="myCarousel" class="carousel slide" data-ride="carousel">
+	    <ol class="carousel-indicators">
+		  <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+          <li data-target="#myCarousel" data-slide-to="1"></li>
+          <li data-target="#myCarousel" data-slide-to="2"></li>
+          <li data-target="#myCarousel" data-slide-to="3"></li>
+        </ol>
+		<div class="carousel-inner" role="listbox">
+        <div class="item active">
+          <img class="first-slide" src="img/tela1-cppaint.png" alt="First slide">
+          <div class="container">
+          </div>
+        </div>
+        <div class="item">
+          <img class="second-slide" src="img/tela2-cppaint.png" alt="Second slide">
+          <div class="container">
+          </div>
+        </div>
+        <div class="item">
+          <img class="third-slide" src="img/codigo-cppaint.png" alt="Third slide">
+          <div class="container">
+          </div>
+        </div>
+        <div class="item">
+          <img class="fourth-slide" src="img/exemplo-cppaint.png" alt="Fourth slide">
+          <div class="container">
+          </div>
+        </div>
+      </div>
+      <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+	  </div>
+	  <div id="texto-cppaint">
+        <h2>Cpp paint</h2>
+	    <p>UM PROGRAMA QUE FAZ PROGRAMAS!</p>
+	    <p>Fiz esse programa para me ajudar a construir programas em 
+		  C++ que tivessem "imagens", uma vez que escrever os sprites
+		  linha por linha levava muito tempo.</p>
+  	    <p>O programa tem uma interface para desenho, e produz um arquivo
+		  com o código correspondente para ser utilizado em outros projetos.</p>
+      </div>
 	</div>
 	</section>
 	
@@ -82,6 +126,8 @@
  ´            ´              
 	    </pre>
 	  </marquee>
+	</div>
+	<div id="rodape">
 	</div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
