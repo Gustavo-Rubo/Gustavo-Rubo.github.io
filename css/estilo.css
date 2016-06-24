@@ -17,6 +17,11 @@ canvas:focus
 	outline-width: 0px;
 }
 
+canvas
+{
+	border-radius: inherit;
+}
+
 #conteudo
 {
 	margin: auto;
@@ -43,6 +48,7 @@ canvas:focus
 	margin: auto;
 	width: 800px;
 	height: 170px;
+	border-radius: 4px;
 }
 
 #eu
