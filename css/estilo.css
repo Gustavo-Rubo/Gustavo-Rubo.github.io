@@ -30,7 +30,7 @@ canvas
 	padding: 20px;
 	position: relative;
 	width: 800px;
-	border: 2px solid;
+	border: 3px solid;
 	border-color: #222222;
 	border-radius: 4px;
 }
@@ -65,7 +65,7 @@ canvas
 	margin-right: 20px;
 }
 
-#myCarousel
+#myCarousel1, #myCarousel2
 {
 	position: absolute;
 	margin-left: 350px;
